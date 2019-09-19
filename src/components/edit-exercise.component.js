@@ -40,16 +40,42 @@ function EditExercise() {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <input type="text" onChange={onChangeUsername} />
-        <input type="text" onChange={onChangeDescription} />
-        <input type="text" onChange={onChangeDuration} />
-        <DatePicker onChange={onChangeDate} selected={date} />
-        <input type="text" onChange={onChangeUsers} />
+        <div className="form-group">
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            className="form-control"
+            id="description"
+            placeholder="ex: running"
+            onChange={onChangeDescription}
+          />
+        </div>
 
-        <input type="submit" value="submit" />
+        <div className="form-group">
+          <label htmlFor="duration">Duration</label>
+          <input
+            type="text"
+            className="form-control"
+            id="duration"
+            placeholder="ex: 10"
+            onChange={onChangeDuration}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="date">Date</label>
+          <DatePicker
+            type="text"
+            className="form-control"
+            selected={date}
+            onSelect={onChangeDate}
+          />
+        </div>
+
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
-
-      <h1>{username}</h1>
     </div>
   );
 }
