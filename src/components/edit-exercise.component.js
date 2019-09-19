@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function EditExercise() {
   const [username, setUsername] = useState("");
@@ -41,7 +43,7 @@ function EditExercise() {
         <input type="text" onChange={onChangeUsername} />
         <input type="text" onChange={onChangeDescription} />
         <input type="text" onChange={onChangeDuration} />
-        <input type="text" onChange={onChangeDate} />
+        <DatePicker onChange={onChangeDate} selected={date} />
         <input type="text" onChange={onChangeUsers} />
 
         <input type="submit" value="submit" />
