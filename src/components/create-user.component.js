@@ -1,16 +1,21 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const CreateUser = () => {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
 
   function onChangeUser(e) {
-    setUser(e.target.value);
+    setUser({ username: e.target.value });
   }
 
   function onSubmit(e) {
     e.preventDefault();
 
     console.log("submitting " + user);
+    axios
+      .post("http://localhost:5000/users/add", user)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err.message));
   }
   return (
     <div>
